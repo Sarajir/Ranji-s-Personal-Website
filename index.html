@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ran Ji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-color: #f9fafa;
+      --text-color: #333;
+      --link-color: #2a7ae2;
+      --card-bg: #fff;
+    }
+    [data-theme="dark"] {
+      --bg-color: #121212;
+      --text-color: #eee;
+      --link-color: #8ab4f8;
+      --card-bg: #1e1e1e;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Asap', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+      transition: background 0.3s, color 0.3s;
+    }
+    .container {
+      max-width: 960px;
+      margin: auto;
+      padding: 2em;
+    }
+    .intro {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 2em;
+      flex-wrap: wrap;
+    }
+    .intro img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 0.2em;
+    }
+    h2 {
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.2em;
+      margin-top: 2.5em;
+    }
+    p {
+      line-height: 1.6;
+    }
+    ul {
+      padding-left: 1em;
+    }
+    li {
+      margin-bottom: 1.5em;
+      background: var(--card-bg);
+      padding: 1em;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    a {
+      color: var(--link-color);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .section {
+      margin-top: 2em;
+    }
+    .theme-toggle {
+      position: absolute;
+      top: 1em;
+      right: 1em;
+    }
+    .lang-switch {
+      position: absolute;
+      top: 1em;
+      left: 1em;
+    }
+    .love-emoji {
+      position: fixed;
+      bottom: 1.5em;
+      right: 1.5em;
+      font-size: 42px;
+      text-decoration: none;
+      z-index: 999;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .love-emoji:hover {
+      transform: scale(1.4) rotate(10deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="theme-toggle">
+    <button onclick="toggleTheme()">🌗 Toggle Theme</button>
+  </div>
+  <div class="lang-switch">
+    <button onclick="toggleLanguage()">🌐 中文 / English</button>
+  </div>
+
+  <!-- English Content -->
+  <div class="container" id="content-en">
+    <div class="intro">
+      <img src="Ran_Ji.jpg" alt="Ran Ji" />
+      <div>
+        <h1>Ran Ji (Sara)</h1>
+        <p>
+          Hi! I’m Ran Ji (also known as Sara), a Psychology major at <strong>UC Davis</strong>, passionate about child development, early autism detection, and inclusive education.
+          I currently work with the <a href="https://health.ucdavis.edu/mind-institute/" target="_blank"><strong>MIND Institute</strong></a> and <a href="https://aspire.ucdavis.edu/" target="_blank"><strong>ASPIRE Program</strong></a> on projects involving neurodiverse populations, including autism and ADHD.
+        </p>
+        <p>
+          I’m particularly interested in how children understand emotions, attribute intentions to AI and humans, and construct meaning through interaction.
+          I’ve also served as a special education classroom assistant, where I supported neurodiverse learners aged 6 to 21.
+        </p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Research Interests</h2>
+      <ul>
+        <li>Early autism detection and family-based intervention</li>
+        <li>Children's theory of mind and attribution of agency</li>
+        <li>AI in education and human-robot interaction</li>
+        <li>Social-emotional development in neurodiverse children</li>
+        <li>Inclusive curriculum design and special education practices</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Selected Projects</h2>
+      <ul>
+        <li>
+          <strong>Do Children Attribute Minds to AI Voices?</strong><br />
+          An experimental study examining how children interpret emotions and intentions from AI vs. human speech, using behavioral tasks and interview data.<br />
+          👉 Focus: Attribution bias, emotion recognition, neurotypical vs. autistic children.
+        </li>
+        <li>
+          <strong>Secret Bases and Child Autonomy</strong><br />
+          A creative project exploring how children create "secret bases" and how such spaces support their autonomy, imagination, and social connection.<br />
+          👉 Tools: Drawing tasks, interviews, cultural comparisons.
+        </li>
+        <li>
+          <strong>Schoolwide Emotion Support System</strong><br />
+          Developing a comprehensive emotion support model for a 9-year consistent school in Shanghai, integrating teacher training, student space design, and home-school collaboration.<br />
+          👉 Emphasis: Proactive intervention, emotional regulation, inclusive practices.
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 中文内容 -->
+  <div class="container" id="content-cn" style="display: none;">
+    <div class="intro">
+      <img src="Ran_Ji.jpg" alt="季然" />
+      <div>
+        <h1>季然（Sara）</h1>
+        <p>
+          你好！我是季然（Sara），就读于加州大学戴维斯分校心理学专业，专注于儿童发展、早期自闭症识别与包容性教育研究。
+          我目前在 <a href="https://health.ucdavis.edu/mind-institute/" target="_blank"><strong>MIND 研究所</strong></a> 与 <a href="https://aspire.ucdavis.edu/" target="_blank"><strong>ASPIRE 本科生科研项目</strong></a> 参与多个项目，研究对象包括自闭症、ADHD 等神经多样性群体。
+        </p>
+        </p>
+        <p>
+          我关注儿童如何理解情绪、如何将意图归因于 AI 或真人、以及他们如何在互动中构建意义。
+          我曾担任特殊教育课堂助理，服务对象包括 6 至 21 岁的神经多样性学生。
+        </p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>研究兴趣</h2>
+      <ul>
+        <li>早期自闭症识别与家庭干预</li>
+        <li>儿童的心理理论与意图归因</li>
+        <li>教育中的人工智能与人机互动</li>
+        <li>神经多样性儿童的社会情绪发展</li>
+        <li>包容性课程设计与特殊教育实务</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>项目介绍</h2>
+      <ul>
+        <li>
+          <strong>儿童会将“意识”归因给 AI 吗？</strong><br />
+          一项实验研究，探讨儿童如何从 AI 与人类语言中解读情绪与意图，使用行为任务与访谈资料。<br />
+          👉 关键词：归因偏差、情绪识别、典型发展 vs. 自闭症儿童
+        </li>
+        <li>
+          <strong>秘密基地与儿童自主性</strong><br />
+          一项创意项目，探索儿童如何创造“秘密基地”，以及这些空间如何支持他们的自主性、想象力与社交连接。<br />
+          👉 方法：绘画任务、访谈、文化比较
+        </li>
+        <li>
+          <strong>校园情绪支持系统</strong><br />
+          为上海某九年一贯制学校开发情绪支持系统，整合教师培训、学生空间设计与家校合作。<br />
+          👉 重点：主动性干预、情绪调节、包容性教育实践
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute("data-theme");
+      if (current === "dark") {
+        html.removeAttribute("data-theme");
+      } else {
+        html.setAttribute("data-theme", "dark");
+      }
+    }
+
+    function toggleLanguage() {
+      const en = document.getElementById("content-en");
+      const cn = document.getElementById("content-cn");
+      if (en.style.display === "none") {
+        en.style.display = "block";
+        cn.style.display = "none";
+      } else {
+        en.style.display = "none";
+        cn.style.display = "block";
+      }
+    }
+  </script>
+  <a href="https://mjxwang.github.io/Maijunxian-Wang-s-Personal-Website-1-/" class="love-emoji" title="To Maijunxian ❤️">🐶</a>
+</body>
+</html>
