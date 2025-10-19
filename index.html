@@ -9,101 +9,313 @@
   <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg-color: #f9fafa;
-      --text-color: #333;
-      --link-color: #2a7ae2;
-      --card-bg: #fff;
+      --bg-color: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --bg-color-solid: #f8fafc;
+      --text-color: #2d3748;
+      --text-color-light: #4a5568;
+      --link-color: #667eea;
+      --link-color-hover: #5a67d8;
+      --card-bg: rgba(255, 255, 255, 0.95);
+      --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      --card-shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.15);
+      --border-radius: 16px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     [data-theme="dark"] {
-      --bg-color: #121212;
-      --text-color: #eee;
-      --link-color: #8ab4f8;
-      --card-bg: #1e1e1e;
+      --bg-color: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+      --bg-color-solid: #1a202c;
+      --text-color: #e2e8f0;
+      --text-color-light: #a0aec0;
+      --link-color: #81c784;
+      --link-color-hover: #a5d6a7;
+      --card-bg: rgba(45, 55, 72, 0.9);
+      --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      --card-shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.4);
     }
+    
     * {
       box-sizing: border-box;
     }
+    
     body {
-      font-family: 'Asap', sans-serif;
+      font-family: 'Asap', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background: var(--bg-color);
       color: var(--text-color);
       margin: 0;
       padding: 0;
-      transition: background 0.3s, color 0.3s;
+      min-height: 100vh;
+      transition: var(--transition);
+      line-height: 1.6;
     }
+    
     .container {
-      max-width: 960px;
-      margin: auto;
-      padding: 2em;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      position: relative;
+      z-index: 1;
     }
+    
     .intro {
       display: flex;
       flex-direction: row;
       align-items: center;
-      gap: 2em;
+      gap: 3rem;
       flex-wrap: wrap;
+      background: var(--card-bg);
+      padding: 3rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--card-shadow);
+      margin-bottom: 3rem;
+      backdrop-filter: blur(10px);
+      transition: var(--transition);
     }
+    
+    .intro:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--card-shadow-hover);
+    }
+    
     .intro img {
-      width: 180px;
-      height: 180px;
+      width: 200px;
+      height: 200px;
       object-fit: cover;
       border-radius: 50%;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+      transition: var(--transition);
+      border: 4px solid rgba(255, 255, 255, 0.2);
     }
+    
+    .intro img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    }
+    
+    .intro-content {
+      flex: 1;
+      min-width: 300px;
+    }
+    
     h1 {
-      font-size: 2.2em;
-      margin-bottom: 0.2em;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, var(--link-color), var(--link-color-hover));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
     }
+    
     h2 {
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 0.2em;
-      margin-top: 2.5em;
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin: 3rem 0 1.5rem 0;
+      position: relative;
+      padding-bottom: 0.5rem;
     }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(135deg, var(--link-color), var(--link-color-hover));
+      border-radius: 2px;
+    }
+    
     p {
-      line-height: 1.6;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--text-color-light);
+      margin-bottom: 1rem;
     }
+    
+    .section {
+      margin-bottom: 3rem;
+    }
+    
     ul {
-      padding-left: 1em;
+      list-style: none;
+      padding: 0;
+      margin: 0;
     }
+    
     li {
-      margin-bottom: 1.5em;
+      margin-bottom: 1.5rem;
       background: var(--card-bg);
-      padding: 1em;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--card-shadow);
+      transition: var(--transition);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
     }
+    
+    li:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--card-shadow-hover);
+    }
+    
+    .project-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--link-color);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    
+    .project-detail {
+      margin-bottom: 0.8rem;
+      font-size: 1rem;
+    }
+    
+    .project-detail strong {
+      color: var(--text-color);
+      font-weight: 600;
+    }
+    
     a {
       color: var(--link-color);
       text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
     }
+    
     a:hover {
-      text-decoration: underline;
+      color: var(--link-color-hover);
+      text-decoration: none;
     }
-    .section {
-      margin-top: 2em;
+    
+    a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--link-color);
+      transition: var(--transition);
     }
+    
+    a:hover::after {
+      width: 100%;
+    }
+    
+    .theme-toggle, .lang-switch {
+      position: fixed;
+      top: 2rem;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+    
     .theme-toggle {
-      position: absolute;
-      top: 1em;
-      right: 1em;
+      right: 2rem;
     }
+    
     .lang-switch {
-      position: absolute;
-      top: 1em;
-      left: 1em;
+      left: 2rem;
     }
+    
+    button {
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--text-color);
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: var(--transition);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      background: var(--link-color);
+      color: white;
+    }
+    
     .love-emoji {
       position: fixed;
-      bottom: 1.5em;
-      right: 1.5em;
-      font-size: 42px;
+      bottom: 2rem;
+      right: 2rem;
+      font-size: 3rem;
       text-decoration: none;
       z-index: 999;
-      transition: transform 0.3s ease;
+      transition: var(--transition);
       cursor: pointer;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
     }
+    
     .love-emoji:hover {
-      transform: scale(1.4) rotate(10deg);
+      transform: scale(1.2) rotate(15deg);
+      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+      
+      .intro {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+        gap: 2rem;
+      }
+      
+      .intro img {
+        width: 150px;
+        height: 150px;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .theme-toggle, .lang-switch {
+        position: relative;
+        top: auto;
+        right: auto;
+        left: auto;
+        margin: 1rem;
+      }
+      
+      .love-emoji {
+        bottom: 1rem;
+        right: 1rem;
+        font-size: 2.5rem;
+      }
+    }
+    
+    /* Animation for page load */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .intro, .section {
+      animation: fadeInUp 0.6s ease-out;
+    }
+    
+    .section:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+    
+    .section:nth-child(3) {
+      animation-delay: 0.4s;
     }
   </style>
 </head>
@@ -119,15 +331,15 @@
   <div class="container" id="content-en">
     <div class="intro">
       <img src="Ran_Ji.jpg" alt="Ran Ji" />
-      <div>
+      <div class="intro-content">
         <h1>Ran Ji (Sara)</h1>
         <p>
-          Hi! I’m Ran Ji (also known as Sara), a Psychology and Cognitive Science major at <strong>UC Davis</strong>, passionate about child development, early autism detection, and inclusive education.
+          Hi! I'm Ran Ji (also known as Sara), a Psychology and Cognitive Science major at <strong>UC Davis</strong>, passionate about child development, early autism detection, and inclusive education.
           I currently work with the <a href="https://health.ucdavis.edu/mind-institute/" target="_blank"><strong>MIND Institute</strong></a>, <a href="https://growing-ai-like-a-child.github.io/" target="_blank"><strong>Grow AI</strong></a> and <a href="https://aspire.ucdavis.edu/" target="_blank"><strong>ASPIRE Program</strong></a> on projects involving neurodiverse populations, including autism and ADHD.
         </p>
         <p>
-          I’m particularly interested in how children understand emotions, attribute intentions to AI and humans, and construct meaning through interaction.
-          I’ve also served as a special education classroom assistant, where I supported neurodiverse learners aged 6 to 21.
+          I'm particularly interested in how children understand emotions, attribute intentions to AI and humans, and construct meaning through interaction.
+          I've also served as a special education classroom assistant, where I supported neurodiverse learners aged 6 to 21.
         </p>
       </div>
     </div>
@@ -147,32 +359,32 @@
       <h2>Selected Projects</h2>
       <ul>
         <li>
-          <strong>AI Metacognitive Performance Research (2025.04-present)</strong><br />
-          <strong>Context:</strong> Joined Grow AI interdisciplinary research team to explore whether AI can develop intelligence like children<br />
-          <strong>Task:</strong> Designed experiments testing metacognitive performance of mainstream VLMs (Ovis2, Qwen2.5, etc.)<br />
-          <strong>Action:</strong> Applied cognitive psychology theories to construct Grid, Gabor, and Color visual tasks with two-stage experimental framework<br />
-          <strong>Result:</strong> Completed two paper drafts, enhanced interdisciplinary research capabilities, understood psychology's application value in AI field
+          <span class="project-title">AI Metacognitive Performance Research (2025.04-present)</span>
+          <div class="project-detail"><strong>Context:</strong> Joined Grow AI interdisciplinary research team to explore whether AI can develop intelligence like children</div>
+          <div class="project-detail"><strong>Task:</strong> Designed experiments testing metacognitive performance of mainstream VLMs (Ovis2, Qwen2.5, etc.)</div>
+          <div class="project-detail"><strong>Action:</strong> Applied cognitive psychology theories to construct Grid, Gabor, and Color visual tasks with two-stage experimental framework</div>
+          <div class="project-detail"><strong>Result:</strong> Completed two paper drafts, enhanced interdisciplinary research capabilities, understood psychology's application value in AI field</div>
         </li>
         <li>
-          <strong>TEDI Lab Early Intervention Research (2025.01-2025.09)</strong><br />
-          <strong>Context:</strong> Joined MIND Institute through ASPIRE program to study infant social behavior<br />
-          <strong>Task:</strong> Remote assessment of 6-36 month infants' social and sensory behaviors, conducted behavioral coding analysis<br />
-          <strong>Action:</strong> Applied developmental psychology theories to analyze infant social referencing behaviors, participated in reliability analysis<br />
-          <strong>Result:</strong> Independently completed interview coding, understood rigor of psychological research, deepened understanding of early intervention importance
+          <span class="project-title">TEDI Lab Early Intervention Research (2025.01-2025.09)</span>
+          <div class="project-detail"><strong>Context:</strong> Joined MIND Institute through ASPIRE program to study infant social behavior</div>
+          <div class="project-detail"><strong>Task:</strong> Remote assessment of 6-36 month infants' social and sensory behaviors, conducted behavioral coding analysis</div>
+          <div class="project-detail"><strong>Action:</strong> Applied developmental psychology theories to analyze infant social referencing behaviors, participated in reliability analysis</div>
+          <div class="project-detail"><strong>Result:</strong> Independently completed interview coding, understood rigor of psychological research, deepened understanding of early intervention importance</div>
         </li>
         <li>
-          <strong>Campus Emotion Support System Design (2025 Spring)</strong><br />
-          <strong>Context:</strong> UWP 104D course group project designing educational grant proposal<br />
-          <strong>Task:</strong> Wrote "Best Buddies: Peer-Led Sensory Wellness" cross-grade SEL project<br />
-          <strong>Action:</strong> Applied psychology theories to design high school psychology students guiding elementary students' emotion regulation activities<br />
-          <strong>Result:</strong> Completed 10-page formal proposal, learned to transform psychological theories into practical projects
+          <span class="project-title">Campus Emotion Support System Design (2025 Spring)</span>
+          <div class="project-detail"><strong>Context:</strong> UWP 104D course group project designing educational grant proposal</div>
+          <div class="project-detail"><strong>Task:</strong> Wrote "Best Buddies: Peer-Led Sensory Wellness" cross-grade SEL project</div>
+          <div class="project-detail"><strong>Action:</strong> Applied psychology theories to design high school psychology students guiding elementary students' emotion regulation activities</div>
+          <div class="project-detail"><strong>Result:</strong> Completed 10-page formal proposal, learned to transform psychological theories into practical projects</div>
         </li>
         <li>
-          <strong>Stepping Stones Social-Emotional Learning Project (2025.07-08)</strong><br />
-          <strong>Context:</strong> Joined Shanghai elementary SEL project as volunteer lead teacher<br />
-          <strong>Task:</strong> Designed 6-week emotion-themed curriculum including emotion recognition, expression, and regulation training<br />
-          <strong>Action:</strong> Applied emotion regulation theories to design "emotion thermometer" and "emotion mask" activities<br />
-          <strong>Result:</strong> Students' emotion expression abilities significantly improved, experienced direct value of psychology knowledge in improving children's learning states
+          <span class="project-title">Stepping Stones Social-Emotional Learning Project (2025.07-08)</span>
+          <div class="project-detail"><strong>Context:</strong> Joined Shanghai elementary SEL project as volunteer lead teacher</div>
+          <div class="project-detail"><strong>Task:</strong> Designed 6-week emotion-themed curriculum including emotion recognition, expression, and regulation training</div>
+          <div class="project-detail"><strong>Action:</strong> Applied emotion regulation theories to design "emotion thermometer" and "emotion mask" activities</div>
+          <div class="project-detail"><strong>Result:</strong> Students' emotion expression abilities significantly improved, experienced direct value of psychology knowledge in improving children's learning states</div>
         </li>
       </ul>
     </div>
@@ -182,12 +394,11 @@
   <div class="container" id="content-cn" style="display: none;">
     <div class="intro">
       <img src="Ran_Ji.jpg" alt="季然" />
-      <div>
+      <div class="intro-content">
         <h1>季然（Sara）</h1>
         <p>
           你好！我是季然（Sara），就读于加州大学戴维斯分校心理学和认知科学专业，专注于儿童发展、早期自闭症识别与包容性教育研究。
-          我目前在 <a href="https://health.ucdavis.edu/mind-institute/" target="_blank"><strong>MIND 研究所；<a href="https://growing-ai-like-a-child.github.io/" target="_blank"><strong>Grow AI 团队 </strong></a> 以及 <a href="https://aspire.ucdavis.edu/" target="_blank"><strong>ASPIRE 本科生科研项目</strong></a> 参与多个项目，研究对象包括自闭症、ADHD 等神经多样性群体。
-        </p>
+          我目前在 <a href="https://health.ucdavis.edu/mind-institute/" target="_blank"><strong>MIND 研究所</strong></a>、<a href="https://growing-ai-like-a-child.github.io/" target="_blank"><strong>Grow AI 团队</strong></a> 以及 <a href="https://aspire.ucdavis.edu/" target="_blank"><strong>ASPIRE 本科生科研项目</strong></a> 参与多个项目，研究对象包括自闭症、ADHD 等神经多样性群体。
         </p>
         <p>
           我关注儿童如何理解情绪、如何将意图归因于 AI 或真人、以及他们如何在互动中构建意义。
@@ -211,32 +422,32 @@
       <h2>项目介绍</h2>
       <ul>
         <li>
-          <strong>人工智能元认知表现研究（2025.04-至今）</strong><br />
-          <strong>背景：</strong>加入Grow AI跨学科研究团队，探讨AI是否能像儿童一样发展智能<br />
-          <strong>任务：</strong>设计实验测试主流VLM（如Ovis2、Qwen2.5等）的元认知表现<br />
-          <strong>行动：</strong>运用认知心理学理论，构建Grid、Gabor、Color三种视觉任务，设计两阶段实验框架<br />
-          <strong>成果：</strong>完成两篇论文初稿，提升跨学科研究能力，理解心理学在AI领域的应用价值
+          <span class="project-title">人工智能元认知表现研究（2025.04-至今）</span>
+          <div class="project-detail"><strong>背景：</strong>加入Grow AI跨学科研究团队，探讨AI是否能像儿童一样发展智能</div>
+          <div class="project-detail"><strong>任务：</strong>设计实验测试主流VLM（如Ovis2、Qwen2.5等）的元认知表现</div>
+          <div class="project-detail"><strong>行动：</strong>运用认知心理学理论，构建Grid、Gabor、Color三种视觉任务，设计两阶段实验框架</div>
+          <div class="project-detail"><strong>成果：</strong>完成两篇论文初稿，提升跨学科研究能力，理解心理学在AI领域的应用价值</div>
         </li>
         <li>
-          <strong>TEDI Lab早期干预研究（2025.01-2025.09）</strong><br />
-          <strong>背景：</strong>通过ASPIRE项目加入MIND Institute，研究婴幼儿社会行为<br />
-          <strong>任务：</strong>远程评估6-36个月婴儿的社会与感官行为，进行行为编码分析<br />
-          <strong>行动：</strong>运用发展心理学理论分析婴儿社会参照行为，参与可靠性分析环节<br />
-          <strong>成果：</strong>独立完成访谈编码，理解心理学研究的严谨性，深化对早期干预重要性的认识
+          <span class="project-title">TEDI Lab早期干预研究（2025.01-2025.09）</span>
+          <div class="project-detail"><strong>背景：</strong>通过ASPIRE项目加入MIND Institute，研究婴幼儿社会行为</div>
+          <div class="project-detail"><strong>任务：</strong>远程评估6-36个月婴儿的社会与感官行为，进行行为编码分析</div>
+          <div class="project-detail"><strong>行动：</strong>运用发展心理学理论分析婴儿社会参照行为，参与可靠性分析环节</div>
+          <div class="project-detail"><strong>成果：</strong>独立完成访谈编码，理解心理学研究的严谨性，深化对早期干预重要性的认识</div>
         </li>
         <li>
-          <strong>校园情绪支持系统设计（2025春季）</strong><br />
-          <strong>背景：</strong>UWP 104D课程小组项目，设计教育类grant proposal<br />
-          <strong>任务：</strong>撰写"Best Buddies: Peer-Led Sensory Wellness"跨学段SEL项目<br />
-          <strong>行动：</strong>运用心理学理论设计高中心理学学生指导小学生的情绪调节活动<br />
-          <strong>成果：</strong>完成10页正式提案，学会将心理学理论转化为实践项目
+          <span class="project-title">校园情绪支持系统设计（2025春季）</span>
+          <div class="project-detail"><strong>背景：</strong>UWP 104D课程小组项目，设计教育类grant proposal</div>
+          <div class="project-detail"><strong>任务：</strong>撰写"Best Buddies: Peer-Led Sensory Wellness"跨学段SEL项目</div>
+          <div class="project-detail"><strong>行动：</strong>运用心理学理论设计高中心理学学生指导小学生的情绪调节活动</div>
+          <div class="project-detail"><strong>成果：</strong>完成10页正式提案，学会将心理学理论转化为实践项目</div>
         </li>
         <li>
-          <strong>铺路石社会情感学习项目（2025.07-08）</strong><br />
-          <strong>背景：</strong>加入上海小学生SEL项目，担任主讲老师志愿者<br />
-          <strong>任务：</strong>设计6周情绪主题课程，包括情绪识别、表达和调节训练<br />
-          <strong>行动：</strong>运用情绪调节理论设计"情绪温度计"、"情绪面具"等活动<br />
-          <strong>成果：</strong>学生情绪表达能力显著提升，体验心理学知识直接改善儿童学习状态的价值
+          <span class="project-title">铺路石社会情感学习项目（2025.07-08）</span>
+          <div class="project-detail"><strong>背景：</strong>加入上海小学生SEL项目，担任主讲老师志愿者</div>
+          <div class="project-detail"><strong>任务：</strong>设计6周情绪主题课程，包括情绪识别、表达和调节训练</div>
+          <div class="project-detail"><strong>行动：</strong>运用情绪调节理论设计"情绪温度计"、"情绪面具"等活动</div>
+          <div class="project-detail"><strong>成果：</strong>学生情绪表达能力显著提升，体验心理学知识直接改善儿童学习状态的价值</div>
         </li>
       </ul>
     </div>
