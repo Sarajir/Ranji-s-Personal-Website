@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>COGS127 Case Study — Ran Ji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f6f4f0;
+      --text: #1a1a1a;
+      --text-muted: #5c5c5c;
+      --accent: #c2410c;
+      --accent-hover: #9a3309;
+      --border: rgba(0, 0, 0, 0.08);
+      --block-bg: #fff;
+    }
+    [data-theme="dark"] {
+      --bg: #0f0f0f;
+      --text: #f0f0ee;
+      --text-muted: #9a9a98;
+      --accent: #f97316;
+      --accent-hover: #ea580c;
+      --border: rgba(255, 255, 255, 0.1);
+      --block-bg: #181818;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Figtree', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      min-height: 100vh;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+    .back {
+      font-size: 0.875rem;
+      margin-bottom: 2rem;
+    }
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin: 0 0 0.5rem 0;
+      letter-spacing: -0.02em;
+    }
+    .subtitle {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      margin: 0 0 2rem 0;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .notice {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+    }
+    h2 {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin: 2rem 0 0.75rem 0;
+    }
+    .placeholder {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      margin: 0;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .placeholder:last-of-type {
+      border-bottom: none;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    a:hover { color: var(--accent-hover); }
+    .theme-toggle {
+      position: fixed;
+      top: 1.25rem;
+      right: 1.25rem;
+      z-index: 1000;
+    }
+    button {
+      background: var(--block-bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.5rem 0.875rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      font-family: inherit;
+    }
+    button:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    @media (max-width: 768px) {
+      .container { padding: 2rem 1.25rem 3rem; }
+      .theme-toggle { position: relative; top: auto; right: auto; margin-bottom: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="theme-toggle">
+    <button type="button" onclick="toggleTheme()">Toggle theme</button>
+  </div>
+
+  <div class="container">
+    <p class="back"><a href="../">← Portfolio home</a></p>
+
+    <h1>COGS127 — Case study</h1>
+    <p class="subtitle">
+      Ran Ji · Spring 2026 · UC San Diego<br />
+      Individual write-up for a team app extension / redesign project.
+    </p>
+
+    <p class="notice">
+      Placeholder page. Sections below will be filled in with research, design, and reflection through Week 10.
+    </p>
+
+    <h2>Overview</h2>
+    <p class="placeholder">—</p>
+
+    <h2>Problem &amp; target users</h2>
+    <p class="placeholder">—</p>
+
+    <h2>Research &amp; insights</h2>
+    <p class="placeholder">—</p>
+
+    <h2>Design process</h2>
+    <p class="placeholder">—</p>
+
+    <h2>Outcome &amp; reflection</h2>
+    <p class="placeholder">—</p>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      if (html.getAttribute("data-theme") === "dark") {
+        html.removeAttribute("data-theme");
+      } else {
+        html.setAttribute("data-theme", "dark");
+      }
+    }
+  </script>
+</body>
+</html>
