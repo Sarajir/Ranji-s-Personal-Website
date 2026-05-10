@@ -147,6 +147,34 @@
       border-radius: 12px;
       border: 1px solid var(--border);
     }
+    .flow-board {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--block-bg);
+    }
+    .screen-shot {
+      display: block;
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    .proto-intro {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      margin: 0 0 1.25rem 0;
+    }
+    .legal-note {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin: 1rem 0 0 0;
+    }
     .section-note {
       font-size: 0.875rem;
       color: var(--text-muted);
@@ -201,7 +229,7 @@
       when someone wants to stay inside <em>one conversation thread</em>, why is it still awkward to find and watch <strong>video replies</strong>?
     </p>
     <p class="meta">
-      <strong>Milestone 4 (May 10):</strong> first draft of this page’s <em>Overview</em> and <em>User Research</em> only. Later milestones add interaction details, metrics, and outcomes.
+      <strong>Milestone 4 (May 10):</strong> first draft of <em>Overview</em> and <em>User Research</em>, plus our team’s <strong>high-fidelity Figma frames</strong> to ground the story visually. Later milestones add evaluation, metrics, and deeper reflection.
     </p>
 
     <h2>Overview</h2>
@@ -226,17 +254,24 @@
       I contributed to research synthesis, interaction framing, and our high-fidelity prototype direction alongside my teammates. This write-up is <strong>my own</strong> framing of the work; our shared source of truth for raw notes lives in the team Google Doc.
     </p>
 
+    <h3>End-to-end flow (Figma)</h3>
+    <p>
+      Below is our Milestone&nbsp;4 Figma board: one continuous path from the <strong>For You</strong> video → <strong>comments</strong> → a dedicated <strong>video-reply</strong> experience, then <strong>grid</strong> browsing and <strong>culture-based</strong> organization before returning to full-screen replies. Red arrows are how we explained the story in critique—not a shipped TikTok interaction spec.
+    </p>
     <figure>
-      <!-- After you export from Figma: save PNG as cogs127-case-study/images/flow-hero.png and uncomment the img below. -->
-      <!--
-      <img class="flow-img" src="images/flow-hero.png" alt="High-fidelity Figma screens: TikTok For You, comments, and structured video reply feed" />
-      -->
-      <div class="figure-slot">
-        <strong>Visual (recommended).</strong> Export one 2× PNG of your main flow (e.g., For You → comments → reply feed) from Figma, save as<br />
-        <code>cogs127-case-study/images/flow-hero.png</code>, then uncomment the <code>&lt;img&gt;</code> in this file’s HTML.
-      </div>
-      <figcaption>One strong hero frame helps busy readers grasp the project in seconds—good polish for the Milestone&nbsp;4 link.</figcaption>
+      <img
+        class="flow-board"
+        src="images/user-flow-full.png"
+        alt="Figma artboard: full user flow from TikTok For You through comments, video reply feed, reply grids, and cultural categories, connected by red arrows"
+        loading="lazy"
+      />
+      <figcaption>
+        Full-flow map exported from our team Figma file. It matches the narrative we used in class: stay inside one thread, but make reply <em>videos</em> scannable and sortable instead of hunting the algorithm.
+      </figcaption>
     </figure>
+    <p class="legal-note">
+      <strong>Disclaimer:</strong> Independent student project for COGS&nbsp;127. UI is an educational homage; <strong>TikTok</strong> and related marks belong to their owners.
+    </p>
 
     <h2>User research</h2>
 
@@ -274,6 +309,46 @@
     <p>
       The Figma flow we built starts on the <strong>For You</strong> screen, opens <strong>comments</strong>, then enters a <strong>structured reply browsing</strong> mode (including grid-style scanning and category organization in later screens). The sequence is meant to mirror the mental model we heard: <em>interest → social context → reply videos on the same topic</em>.
     </p>
+
+    <h3>High-fidelity screens (same flow, exported)</h3>
+    <p class="proto-intro">
+      Each frame below is the same journey as the board above, broken into individual screens so a reader can inspect UI density and hierarchy. Gestures described here follow our prototype copy (e.g., entering replies from the comment context); final copy would need validation in usability testing.
+    </p>
+
+    <figure>
+      <img class="screen-shot" src="images/screen-01.png" alt="Screen 1: TikTok For You feed with full-screen video" loading="lazy" />
+      <figcaption><strong>1 — For You.</strong> Starting state: the user is in the main feed. When a video hooks them, they can open comments to read reactions—the on-ramp we heard repeatedly in interviews.</figcaption>
+    </figure>
+
+    <figure>
+      <img class="screen-shot" src="images/screen-02.png" alt="Screen 2: Comment sheet over the video" loading="lazy" />
+      <figcaption><strong>2 — Comments.</strong> The comment sheet is where people look for jokes, takes, and context. We treat it as the <em>entry</em> into structured reply-video browsing, not a dead end.</figcaption>
+    </figure>
+
+    <figure>
+      <img class="screen-shot" src="images/screen-03.png" alt="Screen 3: Video reply feed with General and Cultural tabs" loading="lazy" />
+      <figcaption><strong>3 — Video reply feed.</strong> From the comment context, the user enters a vertical reply stream. Tabs (e.g., <em>General</em> / <em>Cultural</em>) foreshadow how we might separate “broad” reactions from region- or community-specific perspectives—directly motivated by interview talk about wanting clearer topical structure.</figcaption>
+    </figure>
+
+    <figure>
+      <img class="screen-shot" src="images/screen-04.png" alt="Screen 4: Grid of reply video thumbnails" loading="lazy" />
+      <figcaption><strong>4 — Reply grid.</strong> A scan mode: many candidate reply videos at once so the user can pick a thread instead of passively waiting for the next recommendation.</figcaption>
+    </figure>
+
+    <figure>
+      <img class="screen-shot" src="images/screen-05.png" alt="Screen 5: Cultural category grid with regional imagery" loading="lazy" />
+      <figcaption><strong>5 — Cultural categories.</strong> Tiles stand in for “how different communities respond to the same original post,” supporting the kind of comparative browsing participants described when they talked about wanting multiple angles on one story.</figcaption>
+    </figure>
+
+    <figure>
+      <img class="screen-shot" src="images/screen-06.png" alt="Screen 6: Full-screen reply video after choosing a cultural lane" loading="lazy" />
+      <figcaption><strong>6 — Reply video (cultural lane).</strong> After choosing a category, the experience returns to TikTok-familiar full-screen vertical video, keeping muscle memory while the content set stays tied to the parent thread.</figcaption>
+    </figure>
+
+    <figure>
+      <img class="screen-shot" src="images/screen-07.png" alt="Screen 7: Another full-screen reply video in the same browsing flow" loading="lazy" />
+      <figcaption><strong>7 — Continued replies.</strong> The user can keep moving through related reply videos without being kicked back to unrelated For You items—addressing the fragmentation we heard when people try to stay on one topic.</figcaption>
+    </figure>
 
     <div class="callout">
       <strong>Limitations (honest).</strong> This is a small, exploratory interview set—not a quantitative behavioral study. We haven’t yet run moderated usability tests on a live interactive build; that’s where we’ll learn whether the gestures and labels hold up under real thumbs.
