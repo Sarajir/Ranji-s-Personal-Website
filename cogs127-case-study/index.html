@@ -16,6 +16,7 @@
       --accent-hover: #9a3309;
       --border: rgba(0, 0, 0, 0.08);
       --block-bg: #fff;
+      --callout: #fff7ed;
     }
     [data-theme="dark"] {
       --bg: #0f0f0f;
@@ -25,6 +26,7 @@
       --accent-hover: #ea580c;
       --border: rgba(255, 255, 255, 0.1);
       --block-bg: #181818;
+      --callout: #1c1410;
     }
     * { box-sizing: border-box; }
     body {
@@ -54,14 +56,21 @@
     .subtitle {
       font-size: 0.9375rem;
       color: var(--text-muted);
-      margin: 0 0 2rem 0;
-      padding-bottom: 2rem;
+      margin: 0 0 1.25rem 0;
+      padding-bottom: 1.5rem;
       border-bottom: 1px solid var(--border);
     }
-    .notice {
-      font-size: 0.9375rem;
+    .lead {
+      font-size: 1.0625rem;
+      font-weight: 500;
+      line-height: 1.55;
+      margin: 0 0 1.5rem 0;
+      color: var(--text);
+    }
+    .meta {
+      font-size: 0.8125rem;
       color: var(--text-muted);
-      margin-bottom: 2.5rem;
+      margin: 0 0 2rem 0;
     }
     h2 {
       font-size: 0.6875rem;
@@ -69,24 +78,82 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--text-muted);
-      margin: 2rem 0 0.75rem 0;
+      margin: 2.25rem 0 0.75rem 0;
     }
-    .placeholder {
+    h2:first-of-type { margin-top: 0; }
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.5rem 0;
+      color: var(--text);
+    }
+    p {
+      margin: 0 0 1rem 0;
       font-size: 0.9375rem;
-      color: var(--text-muted);
-      margin: 0;
-      padding: 1rem 0;
-      border-bottom: 1px solid var(--border);
+      color: var(--text);
     }
-    .placeholder:last-of-type {
-      border-bottom: none;
+    ul {
+      margin: 0 0 1rem 0;
+      padding-left: 1.25rem;
+      font-size: 0.9375rem;
     }
+    li { margin-bottom: 0.4rem; }
+    li::marker { color: var(--text-muted); }
     a {
       color: var(--accent);
       text-decoration: none;
       font-weight: 500;
     }
     a:hover { color: var(--accent-hover); }
+    .callout {
+      background: var(--callout);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.125rem;
+      margin: 1.25rem 0;
+      font-size: 0.9375rem;
+    }
+    .callout strong { color: var(--text); }
+    figure {
+      margin: 1.5rem 0;
+      padding: 0;
+    }
+    .figure-slot {
+      border: 1px dashed var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      background: var(--block-bg);
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .figure-slot code {
+      font-size: 0.8125rem;
+      background: var(--bg);
+      padding: 0.1rem 0.35rem;
+      border-radius: 4px;
+    }
+    figcaption {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+    .flow-img {
+      display: block;
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    .section-note {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin: 2rem 0 0 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
     .theme-toggle {
       position: fixed;
       top: 1.25rem;
@@ -123,30 +190,98 @@
   <div class="container">
     <p class="back"><a href="../">← Portfolio home</a></p>
 
-    <h1>COGS127 — Case study</h1>
+    <h1>Structured discovery for video replies on TikTok</h1>
     <p class="subtitle">
-      Ran Ji · Spring 2026 · UC San Diego<br />
-      Individual write-up for a team app extension / redesign project.
+      Ran Ji · COGS 127 (Data-Driven UX / Product Design) · Spring 2026 · UC San Diego<br />
+      Team: Nicholas Campos, Christian Lee, Chuck Davies, Ran Ji · TA section project
     </p>
 
-    <p class="notice">
-      Placeholder page. Sections below will be filled in with research, design, and reflection through Week 10.
+    <p class="lead">
+      Short-form video apps already capture enormous attention. The design question we chased was narrower:
+      when someone wants to stay inside <em>one conversation thread</em>, why is it still awkward to find and watch <strong>video replies</strong>?
+    </p>
+    <p class="meta">
+      <strong>Milestone 4 (May 10):</strong> first draft of this page’s <em>Overview</em> and <em>User Research</em> only. Later milestones add interaction details, metrics, and outcomes.
     </p>
 
     <h2>Overview</h2>
-    <p class="placeholder">—</p>
 
-    <h2>Problem &amp; target users</h2>
-    <p class="placeholder">—</p>
+    <h3>What we proposed</h3>
+    <p>
+      We explored an <strong>extension to TikTok</strong> (educational prototype; not affiliated with ByteDance) that adds a clearer path from a post’s <strong>comments</strong> into a <strong>dedicated, structured feed of video replies</strong>—including ways to scan multiple responses (for example, a grid) and to organize perspectives (for example, “general” vs. culture-specific buckets in our Figma set).
+    </p>
 
-    <h2>Research &amp; insights</h2>
-    <p class="placeholder">—</p>
+    <h3>Problem</h3>
+    <p>
+      In interviews, heavy TikTok users described a familiar pattern: a video sparks curiosity, they open comments for context and reactions, and they sometimes want to keep watching <strong>responses that stay on-topic</strong>. Today, video replies can feel <strong>buried</strong> or <strong>inconsistent</strong> relative to the main recommendation feed, so the jump from “I’m interested in this thread” to “show me the reply videos” breaks flow.
+    </p>
 
-    <h2>Design process</h2>
-    <p class="placeholder">—</p>
+    <h3>Why I care (personal stake)</h3>
+    <p>
+      I’m sensitive to features that mainly optimize <strong>time-on-app</strong>. As a researcher, I’m interested in whether we can improve <strong>navigability and sense-making</strong> inside a thread without treating “more scrolling” as the only success metric. That tension—<em>easier discovery</em> versus <em>healthier use</em>—is something I’m carrying into how we frame outcomes later in the quarter.
+    </p>
 
-    <h2>Outcome &amp; reflection</h2>
-    <p class="placeholder">—</p>
+    <h3>My role</h3>
+    <p>
+      I contributed to research synthesis, interaction framing, and our high-fidelity prototype direction alongside my teammates. This write-up is <strong>my own</strong> framing of the work; our shared source of truth for raw notes lives in the team Google Doc.
+    </p>
+
+    <figure>
+      <!-- After you export from Figma: save PNG as cogs127-case-study/images/flow-hero.png and uncomment the img below. -->
+      <!--
+      <img class="flow-img" src="images/flow-hero.png" alt="High-fidelity Figma screens: TikTok For You, comments, and structured video reply feed" />
+      -->
+      <div class="figure-slot">
+        <strong>Visual (recommended).</strong> Export one 2× PNG of your main flow (e.g., For You → comments → reply feed) from Figma, save as<br />
+        <code>cogs127-case-study/images/flow-hero.png</code>, then uncomment the <code>&lt;img&gt;</code> in this file’s HTML.
+      </div>
+      <figcaption>One strong hero frame helps busy readers grasp the project in seconds—good polish for the Milestone&nbsp;4 link.</figcaption>
+    </figure>
+
+    <h2>User research</h2>
+
+    <h3>Goals &amp; questions</h3>
+    <p>We wanted to understand:</p>
+    <ul>
+      <li>How people currently move from a video to <strong>related</strong> or <strong>response-based</strong> content.</li>
+      <li>Whether “staying on one topic” is something users <em>want</em>, or just something the algorithm sometimes delivers.</li>
+      <li>How comments and <strong>video replies</strong> fit into that mental model.</li>
+      <li>Whether a dedicated entry from the comment sheet into a <strong>reply feed</strong> felt understandable—and what organizational cues (e.g., popularity vs. newer vs. smaller creators) mattered.</li>
+    </ul>
+
+    <h3>Methods</h3>
+    <p>
+      We ran <strong>semi-structured interviews</strong> with TikTok users and used a short <strong>think-aloud</strong>-style prompt: open the app, scroll “normally,” and narrate what draws attention, when comments open, and when they hunt for more on the same topic. We also <strong>concept-tested</strong> our swipe / structured-reply idea with a verbal walkthrough (high-level, not a usability test of production UI).
+    </p>
+
+    <h3>What we heard (patterns)</h3>
+    <ul>
+      <li><strong>Comments are a second layer of meaning.</strong> People use them for jokes, arguments, and context—not only text, but also signals of what’s “happening” around the post.</li>
+      <li><strong>Topic-based exploration is real.</strong> Several participants described falling into “rabbit holes” when a topic clicks—but the path isn’t always reliable.</li>
+      <li><strong>Friction when switching modalities.</strong> Moving from “watching” to “finding more videos about this exact thread” often means leaning on search, profiles, or luck in the For You feed.</li>
+      <li><strong>Early enthusiasm for a structured reply surface.</strong> When we described a path from comments into a reply-only vertical feed, reactions were positive; participants said it could make continuation feel more <em>intentional</em>.</li>
+    </ul>
+
+    <h3>What surprised me</h3>
+    <p>
+      I expected comments to be secondary. Instead, they functioned almost like a <strong>map</strong> for social proof and narrative—especially when a post is controversial or meme-heavy. That pushed us to treat the comment sheet not as a dead-end panel, but as a legitimate <strong>on-ramp</strong> into deeper media.
+    </p>
+    <p>
+      I was also struck by how openly people connect “this would be useful” with “I’d probably spend more time in the app.” That honesty is useful for design—and it’s exactly why I want our later evaluation to include <strong>qualitative safeguards</strong> and <strong>clear task success</strong>, not only engagement counts.
+    </p>
+
+    <h3>How research shaped the design (Milestone 4 direction)</h3>
+    <p>
+      The Figma flow we built starts on the <strong>For You</strong> screen, opens <strong>comments</strong>, then enters a <strong>structured reply browsing</strong> mode (including grid-style scanning and category organization in later screens). The sequence is meant to mirror the mental model we heard: <em>interest → social context → reply videos on the same topic</em>.
+    </p>
+
+    <div class="callout">
+      <strong>Limitations (honest).</strong> This is a small, exploratory interview set—not a quantitative behavioral study. We haven’t yet run moderated usability tests on a live interactive build; that’s where we’ll learn whether the gestures and labels hold up under real thumbs.
+    </div>
+
+    <p class="section-note">
+      <strong>Design process · Outcomes · Reflection</strong> — coming in later milestones (high-fidelity iteration, evaluation, and final case study polish).
+    </p>
   </div>
 
   <script>
