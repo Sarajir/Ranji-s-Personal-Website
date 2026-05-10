@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>COGS127 Case Study (v2) — Cross-cultural reply threads — Ran Ji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f6f4f0;
+      --text: #1a1a1a;
+      --text-muted: #5c5c5c;
+      --accent: #0d9488;
+      --accent-hover: #0f766e;
+      --border: rgba(0, 0, 0, 0.08);
+      --block-bg: #fff;
+      --callout: #ecfdf5;
+    }
+    [data-theme="dark"] {
+      --bg: #0f0f0f;
+      --text: #f0f0ee;
+      --text-muted: #9a9a98;
+      --accent: #2dd4bf;
+      --accent-hover: #5eead4;
+      --border: rgba(255, 255, 255, 0.1);
+      --block-bg: #181818;
+      --callout: #0c1a17;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Figtree', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      min-height: 100vh;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+    .back {
+      font-size: 0.875rem;
+      margin-bottom: 0.35rem;
+    }
+    .back-row { margin-bottom: 1.75rem; }
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin: 0 0 0.5rem 0;
+      letter-spacing: -0.02em;
+    }
+    .subtitle {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      margin: 0 0 1.25rem 0;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.5rem;
+      border-radius: 6px;
+      margin-bottom: 0.75rem;
+      background: var(--block-bg);
+    }
+    .lead {
+      font-size: 1.0625rem;
+      font-weight: 500;
+      line-height: 1.55;
+      margin: 0 0 1.5rem 0;
+      color: var(--text);
+    }
+    .meta {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      margin: 0 0 2rem 0;
+    }
+    h2 {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin: 2.25rem 0 0.75rem 0;
+    }
+    h2:first-of-type { margin-top: 0; }
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.5rem 0;
+      color: var(--text);
+    }
+    p {
+      margin: 0 0 1rem 0;
+      font-size: 0.9375rem;
+      color: var(--text);
+    }
+    ul {
+      margin: 0 0 1rem 0;
+      padding-left: 1.25rem;
+      font-size: 0.9375rem;
+    }
+    li { margin-bottom: 0.4rem; }
+    li::marker { color: var(--text-muted); }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    a:hover { color: var(--accent-hover); }
+    .callout {
+      background: var(--callout);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.125rem;
+      margin: 1.25rem 0;
+      font-size: 0.9375rem;
+    }
+    .callout strong { color: var(--text); }
+    figure { margin: 1.5rem 0; padding: 0; }
+    figcaption {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+    .flow-board {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--block-bg);
+    }
+    .screen-shot {
+      display: block;
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    .proto-intro {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      margin: 0 0 1.25rem 0;
+    }
+    .legal-note {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin: 1rem 0 0 0;
+    }
+    .section-note {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin: 2rem 0 0 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .theme-toggle {
+      position: fixed;
+      top: 1.25rem;
+      right: 1.25rem;
+      z-index: 1000;
+    }
+    button {
+      background: var(--block-bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.5rem 0.875rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      font-family: inherit;
+    }
+    button:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    @media (max-width: 768px) {
+      .container { padding: 2rem 1.25rem 3rem; }
+      .theme-toggle { position: relative; top: auto; right: auto; margin-bottom: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="theme-toggle">
+    <button type="button" onclick="toggleTheme()">Toggle theme</button>
+  </div>
+
+  <div class="container">
+    <div class="back-row">
+      <p class="back"><a href="../">← Portfolio home</a></p>
+      <p class="back"><a href="../cogs127-case-study/">→ Original write-up (structured reply discovery)</a></p>
+    </div>
+
+    <p class="badge">Alternative framing · for comparison</p>
+    <h1>Cross-cultural sense-making inside one TikTok thread</h1>
+    <p class="subtitle">
+      Ran Ji · COGS 127 (Data-Driven UX / Product Design) · Spring 2026 · UC San Diego<br />
+      Team: Nicholas Campos, Christian Lee, Chuck Davies, Ran Ji · Same Figma artifacts, sharper problem story
+    </p>
+
+    <p class="lead">
+      We’re not “adding a random video-reply button.” We’re asking: <strong>who struggles to interpret—and join—reply media when the post sits between cultures?</strong> This version of the case study centers <strong>cross-cultural viewers</strong> (e.g., international students calibrating U.S. TikTok discourse) and treats <strong>video in the comment thread</strong> as a first-class way to <em>participate</em> and <em>compare reactions</em> on the <strong>same parent video</strong>.
+    </p>
+    <p class="meta">
+      <strong>Note:</strong> This page is a <em>second narrative</em> for the same project so I can compare what reads stronger for TA review and my portfolio. Prototype PNGs are shared with the <a href="../cogs127-case-study/">other case study page</a>.
+    </p>
+
+    <h2>Overview</h2>
+
+    <h3>Problem statement</h3>
+    <p>
+      <strong>When</strong> someone tries to understand a viral TikTok—not only watch it, but see <em>how people react</em>—they lean on <strong>comments</strong>. For <strong>cross-cultural viewers</strong> (for example, Chinese international students in the U.S. who are still mapping local humor, slang, and norms), that need is sharper: they may want <strong>host-country reactions</strong>, and sometimes <strong>comparison with home-country</strong> takes on the <strong>same</strong> post.
+    </p>
+    <p>
+      <strong>But</strong> in our interviews, <strong>rich media in the thread</strong>—especially <strong>video responses tied to the comment context</strong>—felt <strong>hard to publish in-flow, hard to browse as a coherent set, and hard to interpret through an explicit “whose perspective is this?” lens.</strong> The For You feed optimizes engagement; it does not guarantee <strong>thread-scoped, interpretable sampling</strong> of communities’ reactions.
+    </p>
+    <p>
+      <strong>So we</strong> prototype a <strong>thread-scoped</strong> extension (educational; not affiliated with ByteDance): (1) a dependable path to <strong>upload and view video responses inside/near the comment context</strong>, (2) <strong>structured browsing</strong> of those replies (vertical feed + grid), and (3) <strong>culture / context lanes</strong> (e.g., General vs. Cultural in our Figma) so users can <strong>choose an interpretive filter</strong> instead of leaving it entirely to the algorithm.
+    </p>
+
+    <div class="callout">
+      <strong>Product claim, said carefully.</strong> TikTok’s feature set varies by market and version. We anchor claims in <strong>what our participants experienced as friction</strong>: even when partial reply-video patterns exist, <strong>cross-cultural sense-making inside one thread</strong>—publish → discover → compare—remained inconsistent for the journeys we studied.
+    </div>
+
+    <h3>Who we’re designing for (primary)</h3>
+    <p>
+      <strong>Primary lens:</strong> international students and other <strong>cross-cultural heavy users</strong> who already watch English TikTok but still feel they’re <strong>missing local nuance</strong> in replies—or who want to <strong>alternate</strong> between “what locals are saying” and “what my home context would say” on the <strong>same</strong> viral moment.
+    </p>
+
+    <h3>Goals</h3>
+    <ul>
+      <li><strong>In-thread video participation:</strong> make <strong>posting and finding video responses</strong> in the <strong>comment context</strong> feel like a normal part of the thread—not a side quest.</li>
+      <li><strong>Interpretable cultural browsing:</strong> let users <strong>intentionally sample</strong> replies under a chosen <strong>context lane</strong> (implementation-wise: self-tags, creator labels, language, or region—<em>not</em> pretend “nationality detection”).</li>
+      <li><strong>Coherence over novelty:</strong> every screen serves <strong>one parent post’s ecosystem</strong>; we are not rebuilding the whole recommendation engine.</li>
+    </ul>
+
+    <h3>Non-goals</h3>
+    <ul>
+      <li>Replacing TikTok’s global recommendation system or solving full machine translation.</li>
+      <li>Definitive automated “culture classification” of people—lanes must stay <strong>transparent and user-controlled</strong> where possible.</li>
+    </ul>
+
+    <h3>My role</h3>
+    <p>
+      I pushed this reframing after TA feedback that our earlier overview felt <strong>too broad</strong>. Same team artifacts; this write-up foregrounds <strong>cross-cultural interpretation + thread-local video media</strong> in my own words.
+    </p>
+
+    <h3>End-to-end flow (Figma — shared assets)</h3>
+    <p>
+      The board below is identical to our Milestone&nbsp;4 export: For You → comments → structured reply video space → grid scan → cultural organization → full-screen replies. Read it here through the lens above: <strong>lanes help answer “whose TikTok is this reply from?”</strong> without leaving the thread.
+    </p>
+    <figure>
+      <img
+        class="flow-board"
+        src="../cogs127-case-study/images/user-flow-full.png"
+        alt="Figma: full flow including comments, structured video replies, grid, and cultural categories"
+        loading="lazy"
+      />
+      <figcaption>Shared team Figma export. Red arrows = how we tell the story in critique.</figcaption>
+    </figure>
+    <p class="legal-note">
+      <strong>Disclaimer:</strong> Student prototype; <strong>TikTok</strong> and marks belong to their owners.
+    </p>
+
+    <h2>User research</h2>
+
+    <h3>Goals &amp; questions (re-centered)</h3>
+    <ul>
+      <li>How do cross-cultural viewers decide <strong>whether a reply “reads” local</strong> versus diaspora or international?</li>
+      <li>When do they want <strong>text</strong> versus <strong>video</strong> reactions—and what breaks when video replies are scattered?</li>
+      <li>Would <strong>explicit lanes</strong> (e.g., cultural filters) feel helpful—or reductive? What labels would feel fair?</li>
+      <li>Where would <strong>in-comment video capture</strong> reduce friction for people who won’t type a long English joke but still want to react?</li>
+    </ul>
+
+    <h3>Methods</h3>
+    <p>
+      Semi-structured interviews and think-aloud TikTok use; we <strong>concept-tested</strong> a comment→reply-video structure and culture-sorted browsing verbally. Sample size is small—this is <strong>directional</strong>, not proof of market demand.
+    </p>
+
+    <h3>Patterns (interpreted for this framing)</h3>
+    <ul>
+      <li><strong>Comments = sense-making infrastructure.</strong> Especially for contentious or meme-heavy posts, comments teach readers the “rules of interpretation” for that thread.</li>
+      <li><strong>Algorithm ≠ intentional comparison.</strong> Staying on one topic across <em>communities</em> is a different job than maximizing watch time.</li>
+      <li><strong>Video replies raise the stakes.</strong> They carry tone and body language—but only help if users can <strong>find them</strong> and know <strong>who they’re hearing from</strong>.</li>
+    </ul>
+
+    <h3>What I’m still cautious about</h3>
+    <p>
+      Culture lanes can become stereotypes if implemented naïvely. Our prototype uses <strong>visual placeholders</strong>; a real ship would need <strong>transparent metadata, opt-in identity signals, and abuse reporting</strong>—I’ll fold that into later milestones.
+    </p>
+
+    <h3>High-fidelity screens (same exports — captions re-tinted)</h3>
+    <p class="proto-intro">
+      Images are the same as the <a href="../cogs127-case-study/">original case study</a>; only the narrative emphasis changes.
+    </p>
+
+    <figure>
+      <img class="screen-shot" src="../cogs127-case-study/images/screen-01.png" alt="For You" loading="lazy" />
+      <figcaption><strong>1 — For You.</strong> The viral post is the anchor; everything below stays scoped to <strong>this</strong> thread’s interpretive work.</figcaption>
+    </figure>
+
+    <figure>
+      <img class="screen-shot" src="../cogs127-case-study/images/screen-02.png" alt="Comments" loading="lazy" />
+      <figcaption><strong>2 — Comments.</strong> We treat this as the hub for both <strong>reading</strong> and (in a fuller build) <strong>composing thread-local video replies</strong>—the missing affordance our participants kept circling.</figcaption>
+    </figure>
+
+    <figure>
+      <img class="screen-shot" src="../cogs127-case-study/images/screen-03.png" alt="Reply feed with tabs" loading="lazy" />
+      <figcaption><strong>3 — Structured reply video + lanes.</strong> <em>General / Cultural</em> is a first pass at answering: “Do I want the broad reply-firehose, or a lane that foregrounds a <strong>specific cultural context</strong>?”</figcaption>
+    </figure>
+
+    <figure>
+      <img class="screen-shot" src="../cogs127-case-study/images/screen-04.png" alt="Grid" loading="lazy" />
+      <figcaption><strong>4 — Scan grid.</strong> Compare candidate reply videos before committing attention—useful when you’re <strong>code-switching</strong> between styles of humor or argument.</figcaption>
+    </figure>
+
+    <figure>
+      <img class="screen-shot" src="../cogs127-case-study/images/screen-05.png" alt="Cultural tiles" loading="lazy" />
+      <figcaption><strong>5 — Cultural entry points.</strong> Tiles are stand-ins for <strong>user-meaningful contexts</strong> (not automatic nationality).</figcaption>
+    </figure>
+
+    <figure>
+      <img class="screen-shot" src="../cogs127-case-study/images/screen-06.png" alt="Full-screen reply" loading="lazy" />
+      <figcaption><strong>6 — Full-screen reply in-lane.</strong> Keeps TikTok muscle memory while preserving “I’m still under this parent post + this lane.”</figcaption>
+    </figure>
+
+    <figure>
+      <img class="screen-shot" src="../cogs127-case-study/images/screen-07.png" alt="Another reply" loading="lazy" />
+      <figcaption><strong>7 — Continuation.</strong> Sustains comparative browsing without dumping the user back into unrelated For You.</figcaption>
+    </figure>
+
+    <div class="callout">
+      <strong>Limitations.</strong> Exploratory interviews only; no moderated usability test on production-like builds yet. Next step is task-based testing with cross-cultural scenarios and tighter ethics copy for lanes.
+    </div>
+
+    <p class="section-note">
+      <strong>Later milestones:</strong> participatory prototypes (e.g., lightweight generated stickers for non-native expression), evaluation metrics that privilege <strong>task success</strong> and <strong>comprehension</strong>, not only dwell time.
+    </p>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      if (html.getAttribute("data-theme") === "dark") {
+        html.removeAttribute("data-theme");
+      } else {
+        html.setAttribute("data-theme", "dark");
+      }
+    }
+  </script>
+</body>
+</html>
