@@ -6,27 +6,33 @@
   <title>COGS127 Case Study — Ran Ji</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #f6f4f0;
-      --text: #1a1a1a;
-      --text-muted: #5c5c5c;
-      --accent: #c2410c;
-      --accent-hover: #9a3309;
-      --border: rgba(0, 0, 0, 0.08);
-      --block-bg: #fff;
+      --bg: #faf8f5;
+      --text: #1c1917;
+      --text-muted: #78716c;
+      --accent: #ea580c;
+      --accent-soft: #fed7aa;
+      --accent-hover: #c2410c;
+      --border: rgba(0, 0, 0, 0.09);
+      --block-bg: #ffffff;
       --callout: #fff7ed;
+      --hero-from: #fff7ed;
+      --hero-to: #fcd9b0;
     }
     [data-theme="dark"] {
-      --bg: #0f0f0f;
-      --text: #f0f0ee;
-      --text-muted: #9a9a98;
-      --accent: #f97316;
-      --accent-hover: #ea580c;
+      --bg: #110e0b;
+      --text: #f5f0eb;
+      --text-muted: #a09890;
+      --accent: #fb923c;
+      --accent-soft: #431407;
+      --accent-hover: #f97316;
       --border: rgba(255, 255, 255, 0.1);
-      --block-bg: #181818;
-      --callout: #1c1410;
+      --block-bg: #1c1713;
+      --callout: #1f1208;
+      --hero-from: #1f1208;
+      --hero-to: #2d1a08;
     }
     * { box-sizing: border-box; }
     body {
@@ -39,9 +45,9 @@
       -webkit-font-smoothing: antialiased;
     }
     .container {
-      max-width: 640px;
+      max-width: 760px;
       margin: 0 auto;
-      padding: 3rem 1.5rem 4rem;
+      padding: 0 1.5rem 4rem;
     }
     .back {
       font-size: 0.875rem;
@@ -49,10 +55,12 @@
     }
     .back-row { margin-bottom: 1.75rem; }
     h1 {
-      font-size: 1.75rem;
-      font-weight: 700;
-      margin: 0 0 0.5rem 0;
-      letter-spacing: -0.02em;
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 2.4rem;
+      font-weight: 400;
+      line-height: 1.18;
+      margin: 0 0 0.75rem 0;
+      letter-spacing: -0.01em;
     }
     .subtitle {
       font-size: 0.9375rem;
@@ -172,9 +180,52 @@
       color: var(--text-muted);
       margin: 0 0 1.25rem 0;
     }
+    /* ── hero ── */
+    .hero {
+      background: linear-gradient(150deg, var(--hero-from) 0%, var(--hero-to) 100%);
+      margin: 0 -1.5rem 0;
+      padding: 3rem 1.5rem 2.75rem;
+      border-radius: 0 0 28px 28px;
+    }
+    .hero .back-row { margin-bottom: 1.5rem; }
+    /* ── sticky section nav ── */
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(250, 248, 245, 0.93);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      overflow-x: auto;
+      margin: 0 -1.5rem 2.5rem;
+      padding: 0 0.5rem;
+      scrollbar-width: none;
+    }
+    [data-theme="dark"] .sticky-nav {
+      background: rgba(17, 14, 11, 0.93);
+    }
+    .sticky-nav::-webkit-scrollbar { display: none; }
+    .sticky-nav a {
+      flex-shrink: 0;
+      padding: 0.75rem 0.875rem;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+      white-space: nowrap;
+    }
+    .sticky-nav a:hover { color: var(--accent); }
+    .sticky-nav a.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
     /* ── scrollable prototype gallery ── */
     .proto-scroll {
-      height: 500px;
+      height: 540px;
       overflow-y: scroll;
       scroll-snap-type: y mandatory;
       border: 1px solid var(--border);
@@ -191,7 +242,7 @@
       border-radius: 4px;
     }
     .proto-scroll figure {
-      height: 500px;
+      height: 540px;
       margin: 0;
       padding: 1.25rem 1.5rem;
       display: flex;
@@ -284,12 +335,27 @@
     }
     /* ── user quote blockquote ── */
     blockquote {
+      background: var(--callout);
       border-left: 3px solid var(--accent);
-      margin: 0.75rem 0 0;
-      padding: 0.375rem 0 0.375rem 0.875rem;
+      border-radius: 0 8px 8px 0;
+      margin: 0.75rem 0 0.25rem;
+      padding: 0.625rem 1rem 0.625rem 1rem;
       font-style: italic;
       font-size: 0.9375rem;
       color: var(--text);
+      position: relative;
+    }
+    blockquote::before {
+      content: '\201C';
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 3rem;
+      line-height: 0;
+      color: var(--accent);
+      opacity: 0.2;
+      position: absolute;
+      top: 1.5rem;
+      left: 0.5rem;
+      pointer-events: none;
     }
     /* ── finding cards ── */
     .finding {
@@ -297,9 +363,13 @@
       gap: 1rem;
       margin: 0.875rem 0;
       padding: 1rem 1.125rem;
-      background: var(--block-bg);
+      background: var(--callout);
       border: 1px solid var(--border);
       border-radius: 10px;
+      transition: box-shadow 0.15s;
+    }
+    .finding:hover {
+      box-shadow: 0 4px 16px rgba(234, 88, 12, 0.08);
     }
     .finding-num {
       flex-shrink: 0;
@@ -371,30 +441,40 @@
   </div>
 
   <div class="container">
-    <div class="back-row">
-      <p class="back"><a href="../">← Portfolio home</a></p>
+    <div class="hero">
+      <div class="back-row">
+        <p class="back"><a href="../">← Portfolio home</a></p>
+      </div>
+
+      <h1>From video replies to a Cultural Travel Hub: a TikTok UX pivot</h1>
+      <div class="tag-pills">
+        <span class="tag-pill">COGS 127</span>
+        <span class="tag-pill">Data-Driven UX / Product Design</span>
+        <span class="tag-pill">Spring 2026</span>
+        <span class="tag-pill">UC San Diego</span>
+        <span class="tag-pill">Ran Ji</span>
+      </div>
+      <p class="subtitle">
+        Team: Nicholas Campos, Christian Lee, Chuck Davies, Ran Ji · TA section project
+      </p>
+
+      <p class="lead">
+        We started with one problem—video replies buried inside TikTok's comment section—and ended up somewhere more interesting: a <strong>Cultural Travel Hub</strong> that helps young adults actually do something with the content they discover. This is the story of that pivot.
+      </p>
+      <p class="meta">
+        <strong>Milestone 4 → Milestone 5:</strong> the project evolved from structured video-reply browsing to a practical travel guide experience. This write-up covers the full arc—original concept, research, the moment we changed direction, and the final design.
+      </p>
     </div>
 
-    <h1>From video replies to a Cultural Travel Hub: a TikTok UX pivot</h1>
-    <div class="tag-pills">
-      <span class="tag-pill">COGS 127</span>
-      <span class="tag-pill">Data-Driven UX / Product Design</span>
-      <span class="tag-pill">Spring 2026</span>
-      <span class="tag-pill">UC San Diego</span>
-      <span class="tag-pill">Ran Ji</span>
-    </div>
-    <p class="subtitle">
-      Team: Nicholas Campos, Christian Lee, Chuck Davies, Ran Ji · TA section project
-    </p>
+    <nav class="sticky-nav" id="sticky-nav">
+      <a href="#overview">Overview</a>
+      <a href="#research">Research</a>
+      <a href="#design">Design</a>
+      <a href="#testing">Testing</a>
+      <a href="#reflection">Reflection</a>
+    </nav>
 
-    <p class="lead">
-      We started with one problem—video replies buried inside TikTok's comment section—and ended up somewhere more interesting: a <strong>Cultural Travel Hub</strong> that helps young adults actually do something with the content they discover. This is the story of that pivot.
-    </p>
-    <p class="meta">
-      <strong>Milestone 4 → Milestone 5:</strong> the project evolved from structured video-reply browsing to a practical travel guide experience. This write-up covers the full arc—original concept, research, the moment we changed direction, and the final design.
-    </p>
-
-    <h2>Overview</h2>
+    <h2 id="overview">Overview</h2>
 
     <h3>The original question</h3>
     <p>
@@ -416,7 +496,7 @@
       I contributed to research synthesis, interaction framing, and our high-fidelity prototype direction across both milestones. This write-up is <strong>my own framing</strong> of the shared work; raw notes and full deliverables live in our team Google Doc.
     </p>
 
-    <h2>User research</h2>
+    <h2 id="research">User research</h2>
 
     <h3>Goals &amp; questions</h3>
     <p>We wanted to understand:</p>
@@ -451,7 +531,7 @@
       <li><strong>Specific categories</strong> (food, transportation, safety) made the experience feel practical rather than exploratory for its own sake.</li>
     </ul>
 
-    <h2>Design evolution</h2>
+    <h2 id="design">Design evolution</h2>
 
     <h3><span class="milestone-badge">M4</span>Video reply threading</h3>
     <p class="proto-intro">
@@ -538,7 +618,7 @@
       <strong>Why this pivot worked.</strong> The M4 design solved a real friction point but kept users inside the app loop. The M5 travel hub reframes success entirely: <em>did the user leave more prepared?</em> That's a healthier metric—and it's why the testing feedback felt so different. "Helps me actually do something" is the clearest signal we received all quarter.
     </div>
 
-    <h2>User testing</h2>
+    <h2 id="testing">User testing</h2>
 
     <p class="proto-intro">
       After building the M5 prototype, we ran two informal user tests to validate the direction. Participants were shown the Cultural Travel Hub via screen-share walkthrough—For You feed → Search → Trip Guide → filtered grid → full-screen video.
@@ -623,7 +703,7 @@
       Based on testing: improve Trip Guide page formatting with bold key terms and clearer bullet hierarchy (Finding 4); maintain the grid view between Trip Guide and full-screen video (Finding 5); implement captions as the default translation option, with auto-dubbing as opt-in (Finding 6).
     </p>
 
-    <h2>Key insights &amp; reflection</h2>
+    <h2 id="reflection">Key insights &amp; reflection</h2>
 
     <h3>What I learned about design pivots</h3>
     <p>
@@ -658,6 +738,25 @@
         html.setAttribute("data-theme", "dark");
       }
     }
+
+    // sticky nav active section highlight
+    (function () {
+      const links = document.querySelectorAll('.sticky-nav a');
+      const sections = document.querySelectorAll('h2[id]');
+      if (!links.length || !sections.length) return;
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            links.forEach(a => a.classList.remove('active'));
+            const hit = document.querySelector(`.sticky-nav a[href="#${e.target.id}"]`);
+            if (hit) hit.classList.add('active');
+          }
+        });
+      }, { rootMargin: '-15% 0px -75% 0px' });
+      sections.forEach(s => io.observe(s));
+      // set first active on load
+      links[0] && links[0].classList.add('active');
+    })();
   </script>
 </body>
 </html>
