@@ -170,6 +170,60 @@
       color: var(--text-muted);
       margin: 0 0 1.25rem 0;
     }
+    /* ── scrollable prototype gallery ── */
+    .proto-scroll {
+      height: 500px;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--block-bg);
+      margin: 1rem 0 1.5rem;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border) transparent;
+    }
+    .proto-scroll::-webkit-scrollbar { width: 4px; }
+    .proto-scroll::-webkit-scrollbar-track { background: transparent; }
+    .proto-scroll::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 4px;
+    }
+    .proto-scroll figure {
+      height: 500px;
+      margin: 0;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      scroll-snap-align: start;
+      box-sizing: border-box;
+      border-bottom: 1px solid var(--border);
+    }
+    .proto-scroll figure:last-child { border-bottom: none; }
+    .proto-scroll figure img {
+      max-height: 360px;
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      margin: 0;
+    }
+    .proto-scroll figcaption {
+      margin-top: 0.625rem;
+      text-align: center;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+    .scroll-hint {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: right;
+      margin: 0 0 0.25rem;
+      letter-spacing: 0.01em;
+    }
     .legal-note {
       font-size: 0.75rem;
       color: var(--text-muted);
@@ -299,52 +353,41 @@
       Our first prototype follows the original hypothesis: from the For You feed, open comments, then enter a structured vertical reply stream. Tabs separate "General" and "Cultural" perspectives; a grid mode lets users scan multiple replies at once before choosing one to watch in full screen.
     </p>
 
-    <figure>
-      <img
-        class="flow-board"
-        src="images/user-flow-full.png"
-        alt="Figma artboard: full user flow from TikTok For You through comments, video reply feed, reply grids, and cultural categories, connected by red arrows"
-        loading="lazy"
-      />
-      <figcaption>
-        Milestone 4 full-flow map. The path: For You feed → comments → video reply feed → grid scan → cultural category tiles → full-screen reply. Red arrows show the critique narrative—not a final interaction spec.
-      </figcaption>
-    </figure>
-
-    <figure>
-      <img class="screen-shot" src="images/screen-01.png" alt="Screen 1: TikTok For You feed with full-screen video" loading="lazy" />
-      <figcaption><strong>1 — For You.</strong> Starting state. A video hooks the user; they open comments to read context and reactions—the on-ramp we heard about in every interview.</figcaption>
-    </figure>
-
-    <figure>
-      <img class="screen-shot" src="images/screen-02.png" alt="Screen 2: Comment sheet over the video" loading="lazy" />
-      <figcaption><strong>2 — Comments.</strong> Instead of a dead end, the comment sheet becomes an entry point. Research showed people treat comments as a social map—so we made it a gateway into reply video browsing.</figcaption>
-    </figure>
-
-    <figure>
-      <img class="screen-shot" src="images/screen-03.png" alt="Screen 3: Video reply feed with General and Cultural tabs" loading="lazy" />
-      <figcaption><strong>3 — Video reply feed.</strong> A dedicated vertical stream of reply videos. Tabs (General / Cultural) let users separate broad reactions from community-specific perspectives—motivated directly by interview talk about wanting topical structure.</figcaption>
-    </figure>
-
-    <figure>
-      <img class="screen-shot" src="images/screen-04.png" alt="Screen 4: Grid of reply video thumbnails" loading="lazy" />
-      <figcaption><strong>4 — Reply grid.</strong> Scan mode: many candidate reply videos at once so the user can choose rather than passively receive the next recommendation.</figcaption>
-    </figure>
-
-    <figure>
-      <img class="screen-shot" src="images/screen-05.png" alt="Screen 5: Cultural category grid with regional imagery" loading="lazy" />
-      <figcaption><strong>5 — Cultural categories.</strong> Tiles representing how different communities respond to the same post. This screen planted the seed for the travel hub pivot: if culture-based organization was useful for replies, why not for destinations?</figcaption>
-    </figure>
-
-    <figure>
-      <img class="screen-shot" src="images/screen-06.png" alt="Screen 6: Full-screen reply video after choosing a cultural lane" loading="lazy" />
-      <figcaption><strong>6 — Reply video (cultural lane).</strong> After choosing a category, full-screen vertical video returns—familiar muscle memory, but the content set stays tied to the parent thread.</figcaption>
-    </figure>
-
-    <figure>
-      <img class="screen-shot" src="images/screen-07.png" alt="Screen 7: Another full-screen reply video in the same browsing flow" loading="lazy" />
-      <figcaption><strong>7 — Continued replies.</strong> The user keeps moving through related reply videos without being kicked back to unrelated For You content—addressing the fragmentation participants described.</figcaption>
-    </figure>
+    <p class="scroll-hint">↕ scroll inside · 8 screens</p>
+    <div class="proto-scroll">
+      <figure>
+        <img src="images/user-flow-full.png" alt="Figma artboard: full user flow from TikTok For You through comments, video reply feed, reply grids, and cultural categories, connected by red arrows" loading="lazy" />
+        <figcaption>Milestone 4 full-flow map. For You feed → comments → video reply feed → grid scan → cultural category tiles → full-screen reply.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/screen-01.png" alt="Screen 1: TikTok For You feed with full-screen video" loading="lazy" />
+        <figcaption><strong>1 — For You.</strong> A video hooks the user; they open comments—the on-ramp we heard about in every interview.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/screen-02.png" alt="Screen 2: Comment sheet over the video" loading="lazy" />
+        <figcaption><strong>2 — Comments.</strong> Instead of a dead end, the comment sheet becomes a gateway into reply video browsing.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/screen-03.png" alt="Screen 3: Video reply feed with General and Cultural tabs" loading="lazy" />
+        <figcaption><strong>3 — Video reply feed.</strong> Tabs (General / Cultural) separate broad reactions from community-specific perspectives.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/screen-04.png" alt="Screen 4: Grid of reply video thumbnails" loading="lazy" />
+        <figcaption><strong>4 — Reply grid.</strong> Scan mode: many reply videos at once so the user can choose rather than passively receive the next recommendation.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/screen-05.png" alt="Screen 5: Cultural category grid with regional imagery" loading="lazy" />
+        <figcaption><strong>5 — Cultural categories.</strong> Tiles planted the seed for the travel hub pivot: if culture-based organisation was useful for replies, why not destinations?</figcaption>
+      </figure>
+      <figure>
+        <img src="images/screen-06.png" alt="Screen 6: Full-screen reply video after choosing a cultural lane" loading="lazy" />
+        <figcaption><strong>6 — Reply video (cultural lane).</strong> Full-screen vertical video returns—familiar muscle memory, content tied to the parent thread.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/screen-07.png" alt="Screen 7: Another full-screen reply video in the same browsing flow" loading="lazy" />
+        <figcaption><strong>7 — Continued replies.</strong> The user keeps moving through related reply videos without being kicked back to For You.</figcaption>
+      </figure>
+    </div>
 
     <h3>Milestone 5 — Cultural Travel Hub</h3>
     <p>
@@ -357,35 +400,33 @@
       <li><strong>Caption-first localization</strong> instead of auto-dubbing, prioritizing accessibility and authentic voice.</li>
     </ul>
 
-    <figure>
-      <img class="flow-board" src="images/m5-overview.png" alt="M5 Cultural Travel Hub — all screens overview" loading="lazy" />
-      <figcaption>M5 prototype overview: For You entry → Search → Trip Guide → filtered grid → full-screen playback.</figcaption>
-    </figure>
-
-    <figure>
-      <img class="screen-shot" src="images/m5-screen-1.png" alt="Screen 1: For You feed — entry point into the travel hub" loading="lazy" />
-      <figcaption>1 — For You feed: familiar TikTok home; the travel hub surfaces naturally through the existing feed.</figcaption>
-    </figure>
-
-    <figure>
-      <img class="flow-board" src="images/m5-screen-2.png" alt="Screen 2: Search with country tags and San Diego neighbourhood chips" loading="lazy" />
-      <figcaption>2 — Search: location-aware tag chips let users jump straight to a destination. Japan path (left) and San Diego path (right) show the same pattern scaling across regions.</figcaption>
-    </figure>
-
-    <figure>
-      <img class="flow-board" src="images/m5-screen-3.png" alt="Screen 3: Trip Guide — Quick Overview text, Before You Go notes, category chips, video grid" loading="lazy" />
-      <figcaption>3 — Trip Guide: structured destination hub with quick-overview prose, before-you-go notes, category filter chips (Street Food, Locations, Night Market…), and a video grid below.</figcaption>
-    </figure>
-
-    <figure>
-      <img class="flow-board" src="images/m5-screen-4.png" alt="Screen 4: Filtered content grid for Japan and San Diego" loading="lazy" />
-      <figcaption>4 — Filtered grid: 2×2 thumbnail browsing after applying category filters — users compare clips before committing to a watch.</figcaption>
-    </figure>
-
-    <figure>
-      <img class="flow-board" src="images/m5-screen-5.png" alt="Screen 5: Full-screen video playback — Japan food content and San Diego Geisel Library" loading="lazy" />
-      <figcaption>5 — Full-screen playback: destination content in context, with caption-first localization preserving the creator's authentic voice.</figcaption>
-    </figure>
+    <p class="scroll-hint">↕ scroll inside · 6 screens</p>
+    <div class="proto-scroll">
+      <figure>
+        <img src="images/m5-overview.png" alt="M5 Cultural Travel Hub — all screens overview" loading="lazy" />
+        <figcaption>Overview: For You entry → Search → Trip Guide → filtered grid → full-screen playback.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/m5-screen-1.png" alt="Screen 1: For You feed — entry point into the travel hub" loading="lazy" />
+        <figcaption><strong>1 — For You feed.</strong> Familiar TikTok home; the travel hub surfaces naturally through the existing feed.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/m5-screen-2.png" alt="Screen 2: Search with country tags and San Diego neighbourhood chips" loading="lazy" />
+        <figcaption><strong>2 — Search.</strong> Location-aware tag chips let users jump straight to a destination. Japan path (left) and San Diego path (right) show the same pattern scaling across regions.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/m5-screen-3.png" alt="Screen 3: Trip Guide — Quick Overview text, Before You Go notes, category chips, video grid" loading="lazy" />
+        <figcaption><strong>3 — Trip Guide.</strong> Structured hub with quick-overview prose, before-you-go notes, category filter chips, and a video grid below.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/m5-screen-4.png" alt="Screen 4: Filtered content grid for Japan and San Diego" loading="lazy" />
+        <figcaption><strong>4 — Filtered grid.</strong> 2×2 thumbnail browsing after applying category filters—compare clips before committing to a watch.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/m5-screen-5.png" alt="Screen 5: Full-screen video playback — Japan food content and San Diego Geisel Library" loading="lazy" />
+        <figcaption><strong>5 — Full-screen playback.</strong> Destination content in context, with caption-first localization preserving the creator's authentic voice.</figcaption>
+      </figure>
+    </div>
 
     <div class="callout">
       <strong>Why this pivot worked.</strong> The M4 design solved a real friction point but kept users inside the app loop. The M5 travel hub reframes success entirely: <em>did the user leave more prepared?</em> That's a healthier metric—and it's why the testing feedback felt so different. "Helps me actually do something" is the clearest signal we received all quarter.
