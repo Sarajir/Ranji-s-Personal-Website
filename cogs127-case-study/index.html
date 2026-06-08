@@ -294,6 +294,30 @@
       padding: 0.2rem 0.6rem;
       border-radius: 99px;
     }
+    /* ── people-focused problem statement in hero ── */
+    .hero-problem {
+      background: var(--block-bg);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1rem 1.125rem;
+      margin: 1.25rem 0 1.5rem;
+    }
+    .hero-problem-label {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+    .hero-problem p {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--text);
+    }
     /* ── milestone badge ── */
     .milestone-badge {
       display: inline-flex;
@@ -446,23 +470,29 @@
         <p class="back"><a href="../">← Portfolio home</a></p>
       </div>
 
-      <h1>From video replies to a Cultural Travel Hub: a TikTok UX pivot</h1>
+      <h1>Helping travelers understand a new place, faster</h1>
+      <p class="subtitle">
+        A TikTok concept that turns scattered travel clips into an organized, destination-by-destination guide for newcomers.
+      </p>
       <div class="tag-pills">
         <span class="tag-pill">COGS 127</span>
         <span class="tag-pill">Data-Driven UX / Product Design</span>
         <span class="tag-pill">Spring 2026</span>
         <span class="tag-pill">UC San Diego</span>
-        <span class="tag-pill">Ran Ji</span>
       </div>
-      <p class="subtitle">
-        Team: Nicholas Campos, Christian Lee, Chuck Davies, Ran Ji · TA section project
-      </p>
+
+      <div class="hero-problem">
+        <span class="hero-problem-label">The problem</span>
+        <p>
+          Young adults (18–30) increasingly use TikTok to research a place before they travel, study abroad, or move somewhere new. But what they need is scattered across unrelated videos with no structure — so they're never sure they've actually understood the place. They need a way to intentionally explore <strong>organized, trustworthy content</strong> about where they're going.
+        </p>
+      </div>
 
       <p class="lead">
-        We started with one problem—video replies buried inside TikTok's comment section—and ended up somewhere more interesting: a <strong>Cultural Travel Hub</strong> that helps young adults actually do something with the content they discover. This is the story of that pivot.
+        We started somewhere else entirely—chasing video replies buried inside TikTok's comment section—and ended up somewhere more useful: a <strong>Cultural Travel Hub</strong> that helps people actually prepare for a place instead of just scrolling past it. This is the story of how user testing changed our minds.
       </p>
       <p class="meta">
-        <strong>Milestone 4 → Milestone 5:</strong> the project evolved from structured video-reply browsing to a practical travel guide experience. This write-up covers the full arc—original concept, research, the moment we changed direction, and the final design.
+        Team: Nicholas Campos, Christian Lee, Chuck Davies, Ran Ji · TA section project. This write-up is my own framing of the work, covering the original concept, research, the moment we changed direction, and the final design.
       </p>
     </div>
 
