@@ -175,6 +175,40 @@
       border-radius: 12px;
       border: 1px solid var(--border);
     }
+    /* ── live interactive prototype demo ── */
+    .demo-block {
+      background: var(--block-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    .demo-video {
+      display: block;
+      width: 100%;
+      max-width: 280px;
+      margin: 0 auto 1rem;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+    }
+    .demo-cta {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      padding: 0.6rem 1.25rem;
+      border-radius: 99px;
+      text-decoration: none;
+    }
+    .demo-cta:hover { background: var(--accent-hover); color: #fff; }
+    .demo-note {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      margin: 0.75rem 0 0;
+    }
     .proto-intro {
       font-size: 0.9375rem;
       color: var(--text-muted);
@@ -643,6 +677,12 @@
         <img src="images/m5-screen-5.png" alt="Screen 5: Full-screen video playback — Japan food content and San Diego Geisel Library" loading="lazy" />
         <figcaption><strong>5 — Full-screen playback.</strong> Destination content in context, with caption-first localization preserving the creator's authentic voice.</figcaption>
       </figure>
+    </div>
+
+    <div class="demo-block">
+      <video class="demo-video" src="images/prototype-demo.mp4" autoplay loop muted playsinline></video>
+      <a class="demo-cta" href="https://sarajir.github.io/cogs127tiktokupdate/" target="_blank" rel="noopener">Try the live prototype →</a>
+      <p class="demo-note">A working, clickable build—not just static mockups. Search a destination, switch category tabs, filter with chips, and open full-screen content. Best viewed on a phone-width window.</p>
     </div>
 
     <div class="callout">
