@@ -14,7 +14,7 @@ The homepage includes bilingual research, publications, education, and community
 
 Preview: `python -m http.server 8769 --bind 127.0.0.1`, then open http://127.0.0.1:8769. No build dependencies.
 
-Content maintenance: publication entries contain public bibliographic information and research summaries, without individual contribution narratives. Use Hokin Deng as the displayed name. Distinguish preprints from accepted papers and proposed work from completed studies. The Davis education entry describes transfer study, not awarded degrees.
+Content maintenance: publication entries contain public bibliographic information and research summaries, without individual contribution narratives. Use Hokin Deng as the displayed name. Distinguish preprints from accepted papers and proposed work from completed studies. The Davis education entry lists the institution and attendance years only.
 
 ## Contents
 
@@ -44,3 +44,4 @@ Content maintenance: publication entries contain public bibliographic informatio
 | 2026-11-11 | Prepared bilingual homepage refresh and public CV; corrected publication links and contribution descriptions; retained existing design case study. |
 | 2026-11-11 | Removed alternate mentor name and paper-specific contribution narratives from both homepage languages and public CV. |
 | 2026-11-11 | Released the approved homepage and public CV update to GitHub Pages. |
+| 2026-11-11 | Simplified the UC Davis education entry to institution and years in both homepage languages and public CV. |
